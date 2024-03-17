@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+    <h1>Crie seu login aqui</h1>
+    <form>
+        {% for field in form %}
+        <div>
+            {{ field.errors }}
+            <b>{{ field.label }}</b>: {{ field }}
+        </div>
+        {% endfor %}
+        <input type="submit" value="Criar login">
+    </form>
+{% endblock %}
+
