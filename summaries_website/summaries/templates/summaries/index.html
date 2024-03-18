@@ -3,8 +3,15 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
-    <div>
-        <h1>Homepage</h1>
+    <div class="max-width content">
+        <h1>Matérias</h1>
+        <a href="{% url 'summaries:create-subject' %}">NOVA MATÉRIA</a>
+        
+        {% for subject in subjects %}
+            <div class="box-subjets">
+                <h3>{{ subject.name }}</h3>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 
