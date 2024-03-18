@@ -3,15 +3,23 @@
 {% block title %} Register {% endblock %}
 
 {% block content %}
-    <h1>Crie seu login aqui</h1>
-    <form>
-        {% for field in form %}
-        <div>
-            {{ field.errors }}
-            <b>{{ field.label }}</b>: {{ field }}
-        </div>
-        {% endfor %}
-        <input type="submit" value="Criar login">
-    </form>
+    <div class="max-width content">
+        <h1>Crie sua conta aqui</h1>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="inputs-box">
+                {{ field.errors }}
+                <b>{{ field.label }}</b>:
+                <br>
+                {{ field }}
+            </div>
+            {% endfor %}
+            {% if error %}
+                <span style="color: red;">{{ error }}</span>
+            {% endif %}
+            <input class="green-button" type="submit" value="Criar login">
+        </form>
+    </div>
 {% endblock %}
 

@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+.max-width {
+    width: 1024px;
+    margin: auto;
+}
+
+header {
+    height: 60px;
+    padding: 5px;
+    background-color: #f0f1f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header > a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+header a {
+    color: #000;
+}
+
+header nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 5px;
+}
+
+main {
+    height: calc(100vh - 60px);
+}
+
+.content {
+    height: 100%;
+    padding: 10px;
+    background-color: #fdf3fd;
+}
+
+.content h1 {
+    text-align: center; 
+}
+
+form {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs-box {
+    width: 100%;
+}
+
+form input[type=text], form input[type=password] {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+form input {
+    margin: 5px 0;
+}
+
+.green-button {
+    background-color: green;
+    height: 30px;
+    width: 100px;
+    color: #fff;
+    border: none;
+    border: 1px solid darkgreen;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.green-button:hover {
+    color: darkgreen;
+    background-color: #fff;
+    border: 1px solid green;
+}
+

@@ -3,14 +3,19 @@
 {% block title %} Login {% endblock %}
 
 {% block content %}
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-        {% for field in form %}
-            <div>
-                <b>{{ field.label }}:</b> {{ field }}
-            </div>
-        {% endfor %}
-        <input type="submit" value="Login">
-    </form>
+    <div class="max-width content">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h1>Logue em sua conta</h1> 
+            {% for field in form %}
+                <div class="inputs-box">
+                    <b>{{ field.label }}:</b> 
+                    <br>
+                    {{ field }}
+                </div>
+            {% endfor %}
+            <input class="green-button" type="submit" value="Login">
+        </form>
+    </div>
 {% endblock %}
 
