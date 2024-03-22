@@ -6,13 +6,16 @@
     <div class="max-width content">
         <h1>Matérias  {{user.username}} {{ user.id }}</h1>
         <a href="{% url 'summaries:create-subject' %}">NOVA MATÉRIA</a>
-        <p>Here it goes</p> 
-        {% for subject in subjects %}
-            <p>It's working<p>
-            <div class="box-subjects">
-                <span>{{ subject.name }}</span>
-            </div>
-        {% endfor %}
+        <div class="subjects-container">
+            {% for subject in subjects %}
+                <div class="box-subjects">
+                    <span>{{ subject.name }}</span>
+                    <a href="#">Create summarie</a>
+                    <a href="#">Access summaries</a>
+                    <a href="#">Edit subject</a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
 

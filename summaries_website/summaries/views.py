@@ -8,8 +8,9 @@ from .forms import SubjectForm
 
 class HomeView(View):
     def get(self, request):
-        subjects = Subject.objects.all().values()
-        print(subjects)
+        subjects =  ""
+        if request.user.is_active:
+            subjects = Subject.objects.filter(user=request.user).values()
         return render(request, "summaries/index.html", {"subjects": subjects})
 
 class CreateSubject(View):

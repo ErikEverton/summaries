@@ -90,3 +90,36 @@ form input {
     border: 1px solid green;
 }
 
+.subjects-container {
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box-subjects {
+    margin-top: 10px;
+    width: 175px;
+    height: 125px;
+    background-color: #0b903f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.box-subjects a {
+    padding: 3px;
+    font-size: 16px;
+    font-weight: normal;
+    color: darkblue;
+}
+
+.box-subjects a:hover {
+    color: #000;
+}
+

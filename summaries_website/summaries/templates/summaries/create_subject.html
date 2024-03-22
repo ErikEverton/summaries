@@ -13,6 +13,11 @@
                     {{ field }}
                 </div>
             {% endfor %}
+            {% if error %}
+                <span style="color: red;">
+                    {{ error }}
+                </span>
+            {% endif %}
             <input class="green-button" type="submit" value="Save">
         </form>
     </div>
