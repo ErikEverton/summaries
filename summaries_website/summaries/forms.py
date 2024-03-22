@@ -1,8 +1,7 @@
 from django import forms
 from .models import Subject
 
-class SubjectForm(forms.Form):
-    name = forms.CharField(max_length=30)
+class SubjectForm(forms.ModelForm):
     class Meta:
         model = Subject
         fields = ["name"]
