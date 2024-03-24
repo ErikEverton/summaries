@@ -25,5 +25,23 @@ class CreateSubject(View):
             subject.user = request.user
             subject.save()
             return redirect("summaries:home")
-        data = {"form": form, "error": "Algo deu errado tente novamente"}
+        data = {"form": form, "error": "Algum erro ocorreu, tente novamente"}
         return render(request, "summaries/create_subject.html", data)
+
+
+class UpdateSubject(View):
+    def get(self, request, id):
+        form = SubjectForm()
+        return render(request, "summaries/update_subject.html", {"form": form, "id": id})
+    
+    def post(self, request, id):
+        form = SubjectForm(request.POST)
+        if form.is_valid():
+            subject = Subject.objects.get(id=id)
+            subject.name = form.cleaned_data["name"]
+            subject.save()
+            return redirect("summaries:home")
+        data = {"form": form, "error": "Algum erro ocorreu, tente novamente "}
+        return render(request, "summaries/update_subject.html", data)
+            
+    

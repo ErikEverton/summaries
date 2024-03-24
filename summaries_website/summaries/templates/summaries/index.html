@@ -4,15 +4,15 @@
 
 {% block content %}
     <div class="max-width content">
-        <h1>Matérias  {{user.username}} {{ user.id }}</h1>
+        <h1>Matérias  {{user.username}} </h1>
         <a href="{% url 'summaries:create-subject' %}">NOVA MATÉRIA</a>
         <div class="subjects-container">
             {% for subject in subjects %}
                 <div class="box-subjects">
                     <span>{{ subject.name }}</span>
-                    <a href="#">Create summarie</a>
-                    <a href="#">Access summaries</a>
-                    <a href="#">Edit subject</a>
+                    <a href="#">Criar matéria</a>
+                    <a href="#">Acessar matéria</a>
+                    <a href="{% url 'summaries:update-subject' subject.id %}">Editar matéria</a>
                 </div>
             {% endfor %}
         </div>

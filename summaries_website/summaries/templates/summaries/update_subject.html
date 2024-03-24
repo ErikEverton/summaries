@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Subject {% endblock %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'summaries:update-subject' id %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="inputs-box">
+                <b>{{ field.label }}:</b>
+                <br>
+                {{ field }}
+            </div>
+        {% endfor %}
+        {% if error %}
+            <span  style="color: red;">{{ error }}</span>
+        {% endif %}
+        <input class="green-button" type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}
+
