@@ -2,13 +2,13 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views import View
 from .models import Subject
-from .forms import SubjectForm 
+from .forms import SubjectForm, SummarieForm 
 
 # Create your views here.
 
 class HomeView(View):
     def get(self, request):
-        subjects =  ""
+        subjects = None
         if request.user.is_active:
             subjects = Subject.objects.filter(user=request.user).values()
         return render(request, "summaries/index.html", {"subjects": subjects})
@@ -44,4 +44,8 @@ class UpdateSubject(View):
         data = {"form": form, "error": "Algum erro ocorreu, tente novamente "}
         return render(request, "summaries/update_subject.html", data)
             
-    
+
+class CreateSummarie(View):
+    def get(self, request):
+        form = SummarieForm()
+        return render(request, "summaries/create_summarie.html", {'form': form})

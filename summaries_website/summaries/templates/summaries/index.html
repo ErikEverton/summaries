@@ -10,7 +10,7 @@
             {% for subject in subjects %}
                 <div class="box-subjects">
                     <span>{{ subject.name }}</span>
-                    <a href="#">Criar matéria</a>
+                    <a href="{% url 'summaries:create-summarie' %}">Criar Resumo</a>
                     <a href="#">Acessar matéria</a>
                     <a href="{% url 'summaries:update-subject' subject.id %}">Editar matéria</a>
                 </div>

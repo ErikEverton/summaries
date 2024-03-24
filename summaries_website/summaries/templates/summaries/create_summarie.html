@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Criar Resumo {% endblock %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'summaries:create-summarie' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="green-button" value="Create">
+        </form>
+    </div>
+{% endblock %}
+
