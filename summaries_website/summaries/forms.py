@@ -8,10 +8,14 @@ class SubjectForm(forms.ModelForm):
 
 
 class SummarieForm(forms.ModelForm):
-    subject = forms.ChoiceField(
-        queryset=Subject.objects.filter(),
-        
-    )
+    subject = forms.ModelChoiceField(queryset=Subject.objects.none())
+
+    def __init__(self, *args, user=None, **kwargs):
+        super(SummarieForm, self).__init__(*args, **kwargs)
+        if user:
+            self.fields["subject"].queryset = Subject.objects.filter(user=user)
+
+
     class Meta:
         model = Summarie
         fields = ("subject", "title", "text")

@@ -47,5 +47,5 @@ class UpdateSubject(View):
 
 class CreateSummarie(View):
     def get(self, request):
-        form = SummarieForm()
+        form = SummarieForm(user=request.user)
         return render(request, "summaries/create_summarie.html", {'form': form})
