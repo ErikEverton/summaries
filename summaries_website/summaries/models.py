@@ -12,7 +12,6 @@ class Subject(models.Model):
 
 
 class Summarie(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     title = models.CharField(max_length=30, default="Nenhum título adicionado.")
     text = models.TextField()

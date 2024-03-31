@@ -49,3 +49,17 @@ class CreateSummarie(View):
     def get(self, request):
         form = SummarieForm(user=request.user)
         return render(request, "summaries/create_summarie.html", {'form': form})
+
+    def post(self, request):
+        form = SummarieForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("summaries:home")
+        data = {"form": form, "error": "Something went wrong"}
+        return render(request, "summaries/create_summarie.html", data)
+
+
+class ListSummaries(View):
+    def get(self, request):
+        return render(request, "summaries/summaries.html")
+

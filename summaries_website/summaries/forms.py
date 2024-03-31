@@ -8,7 +8,7 @@ class SubjectForm(forms.ModelForm):
 
 
 class SummarieForm(forms.ModelForm):
-    subject = forms.ModelChoiceField(queryset=Subject.objects.none())
+    subject = forms.ModelChoiceField(queryset=Subject.objects.all())
 
     def __init__(self, *args, user=None, **kwargs):
         super(SummarieForm, self).__init__(*args, **kwargs)
