@@ -4,8 +4,14 @@
 
 
 {% block content %}
-    <div>
-        <h1>This is the div "I like de div name"</h1>
+    <div class="max-width">
+        <h1>See all your resumes</h1>
+        {% for summarie in summaries %}
+            <div>
+                <h2>{{ summarie.title }}</h2>
+                <p>{{ summarie.text }}</p>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 

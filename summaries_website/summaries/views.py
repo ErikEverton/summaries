@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Subject
+from .models import Subject, Summarie
 from .forms import SubjectForm, SummarieForm 
 
 # Create your views here.
@@ -61,5 +61,14 @@ class CreateSummarie(View):
 
 class ListSummaries(View):
     def get(self, request):
-        return render(request, "summaries/summaries.html")
+        summaries = None
+        subjects = None
+        if request.user.is_active:
+            subjects = Subject.objects.filter(user=request.user).values()
+            subjects = [subject['id'] for subject in subjects]
+            summaries = []
+            for subject in subjects:
+                summaries += Summarie.objects.filter(subject=subject).values()
+                print(summaries)
+        return render(request, "summaries/summaries.html", {"summaries": summaries})
 
