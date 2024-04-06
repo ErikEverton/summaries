@@ -8,5 +8,6 @@ urlpatterns = [
     path("update-subject/<int:id>/", views.UpdateSubject.as_view(), name="update-subject"),
     path("create-summarie/", views.CreateSummarie.as_view(), name="create-summarie"),
     path("summaries/", views.ListSummaries.as_view(), name="summaries"),
+    path("summarie/<int:id>/", views.SummarieView.as_view(), name="summarie"),
 ]
 

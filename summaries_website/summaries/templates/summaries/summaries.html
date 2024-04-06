@@ -10,6 +10,7 @@
             <div>
                 <h2>{{ summarie.title }}</h2>
                 <p>{{ summarie.text }}</p>
+                <a href="{% url "summaries:summarie" summarie.id %}">Access summarie</a>
             </div>
         {% endfor %}
     </div>

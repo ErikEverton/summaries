@@ -69,6 +69,10 @@ class ListSummaries(View):
             summaries = []
             for subject in subjects:
                 summaries += Summarie.objects.filter(subject=subject).values()
-                print(summaries)
         return render(request, "summaries/summaries.html", {"summaries": summaries})
 
+
+class SummarieView(View):
+    def get(self, request, id):
+        summarie = Summarie.objects.filter(id=id).values()[0]
+        return render(request, "summaries/summarie.html", {"summarie": summarie})
