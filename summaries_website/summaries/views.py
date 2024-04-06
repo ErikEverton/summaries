@@ -60,15 +60,16 @@ class CreateSummarie(View):
 
 
 class ListSummaries(View):
-    def get(self, request):
+    def get(self, request, id):
         summaries = None
         subjects = None
         if request.user.is_active:
             subjects = Subject.objects.filter(user=request.user).values()
-            subjects = [subject['id'] for subject in subjects]
+            subjects = [subject for subject in subjects]
             summaries = []
             for subject in subjects:
-                summaries += Summarie.objects.filter(subject=subject).values()
+                if subject["id"] == id:
+                    summaries += Summarie.objects.filter(subject=subject['id']).values()
         return render(request, "summaries/summaries.html", {"summaries": summaries})
 
 

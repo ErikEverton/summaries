@@ -11,7 +11,7 @@
                 <div class="box-subjects">
                     <span>{{ subject.name }}</span>
                     <a href="{% url 'summaries:create-summarie' %}">Criar Resumo</a>
-                    <a href="{% url 'summaries:summaries' %}">Acessar Resumos</a>
+                    <a href="{% url 'summaries:summaries' subject.id %}">Acessar Resumos</a>
                     <a href="{% url 'summaries:update-subject' subject.id %}">Editar matéria</a>
                 </div>
             {% endfor %}
